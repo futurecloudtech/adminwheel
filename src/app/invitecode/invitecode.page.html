@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Invite Code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-card>
+      <ion-card-header class="ion-text-center">
+        <ion-card-subtitle>
+          Last Generate Code : 
+        </ion-card-subtitle>
+        <ion-card-title style="font-size:40px">
+          {{lastgen}}      <ion-icon name="copy-outline" (click)="copy()" size="large"></ion-icon>
+        </ion-card-title>
+  
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title style="font-size:20px">
+          All Invite Code :
+        </ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list style="overflow-x: scroll">
+          <ion-item style="min-width:1920px;">
+            <ion-col size="1">
+              No
+            </ion-col>
+            <ion-col size="2">
+              Invite Code
+            </ion-col>
+            <ion-col size="3">
+              Used By
+            </ion-col>
+            <ion-col size="3">
+              Created At
+            </ion-col>
+            <ion-col size="1">
+              Status
+            </ion-col>
+          </ion-item>
+          <ion-item *ngFor="let i of CodeList" style="min-width:1920px;">
+            <ion-col size="1">
+              {{i.id}}
+            </ion-col>
+            <ion-col size="2">
+              {{i.uid}}
+            </ion-col>
+            <ion-col size="3">
+              {{i.email}}
+            </ion-col>
+            <ion-col size="3">
+              {{i.create_at}}
+            </ion-col>
+            <ion-col size="1">
+              {{i.status == 'T' ? 'Used' : 'pending'}}
+            </ion-col>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="generateCode()">
+      <ion-icon name="add-outline" size="large"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

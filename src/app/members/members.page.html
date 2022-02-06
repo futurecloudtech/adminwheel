@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Members</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-searchbar showCancelButton="focus" [(ngModel)]="searchTerm" (ionInput)="handleInput($event.target.value)" placeholder="Search by PHONE, EMAIL and WINBOX ID"></ion-searchbar>
+    <ion-list style="overflow-x: scroll">
+      <ion-item style="min-width:1920px;">
+        <ion-col size="1">
+          First Name
+        </ion-col>
+        <ion-col size="1">
+          Last Name
+        </ion-col>
+        <ion-col size="3">
+          Email
+        </ion-col>
+        <ion-col size="2">
+          Phone
+        </ion-col>
+        <ion-col size="1">
+          Role
+        </ion-col>
+        <ion-col size="1">
+          Winbox ID
+        </ion-col>
+        <ion-col size="2">
+          Joined at
+        </ion-col>
+      </ion-item>
+
+      <ion-item *ngFor="let i of filterData" style="min-width:1920px;">
+        <ion-col size="1">
+          {{i.first_name}}
+        </ion-col>
+        <ion-col size="1">
+          {{i.last_name}}
+        </ion-col>
+        <ion-col size="3">
+          {{i.email}}
+        </ion-col>
+        <ion-col size="2">
+          {{i.phone_no}}
+        </ion-col>
+        <ion-col size="1">
+          {{i.role}}
+        </ion-col>
+        <ion-col size="1">
+          {{i.extra_id}}
+        </ion-col>
+        <ion-col size="2">
+          {{i.joined_at}}
+        </ion-col>
+      </ion-item>
+      
+    </ion-list>
+</ion-content>

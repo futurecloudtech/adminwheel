@@ -1,0 +1,114 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Setting</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      <ion-title>Home Infomation</ion-title>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">
+        Title
+      </ion-label>
+      <ion-input [(ngModel)]="settingArray.title">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">
+        Subtitle
+      </ion-label>
+      <ion-input [(ngModel)]="settingArray.subtitle">
+
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">
+        Content
+      </ion-label>
+      <ion-textarea  rows="10" [(ngModel)]="settingArray.content">
+
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-list-header>
+      <ion-title>Others</ion-title>
+    </ion-list-header>
+    <ion-item>
+      <ion-label position="stacked">
+        Term & Conditions
+      </ion-label>
+      <ion-textarea rows="10" [(ngModel)]="settingArray.term">
+
+      </ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">
+        Privacy Policy
+      </ion-label>
+      <ion-textarea  rows="10"  [(ngModel)]="settingArray.policy">
+
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" (click)="SaveInfo()">
+    Save Info
+  </ion-button>
+  <ion-list>
+    <ion-list-header>
+      <ion-title>Spinning Wheel</ion-title>
+    </ion-list-header>
+    <ion-accordion-group>
+      <div *ngFor="let i of wheel ; let index = index" >
+      <ion-accordion [value]="i" *ngIf="i.is_deleted == 'F'">
+          <ion-item slot="header">
+            <ion-label>{{i.name}}</ion-label>
+            <ion-icon slot="end" name="close-outline" (click)="removePrize(index)"></ion-icon>
+          </ion-item>
+          <ion-list slot="content">
+            <ion-item>
+              <ion-label position="stacked">
+                Prize Name
+              </ion-label>
+              <ion-input [(ngModel)]="i.name">
+  
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">
+                Chance (%)
+              </ion-label>
+              <ion-input [(ngModel)]="i.chance">
+  
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">
+                Desciption
+              </ion-label>
+              <ion-input [(ngModel)]="i.desc">
+  
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="stacked">
+                Image
+              </ion-label>
+              <ion-input [(ngModel)]="i.img">
+  
+              </ion-input>
+            </ion-item>
+          </ion-list>
+      </ion-accordion>
+    </div>
+    </ion-accordion-group>
+    <ion-button style="border-style: dashed; --background: transparent;"  expand="full" (click)="addPrize()">Add</ion-button>
+  </ion-list>
+  <ion-button expand="full" (click)="saveWheel()">
+    Save Wheel
+  </ion-button>
+</ion-content>

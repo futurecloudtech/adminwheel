@@ -1,0 +1,22 @@
+.center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    background: rgba(0, 0, 0, 0.63);
+    transform: translate(-50%, -50%);
+    // border: 5px solid #FFFF00;
+    // max-width: 500px;
+
+    ion-item{
+        width: 300px;
+    }
+    ion-title{
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+    }
+    ion-textarea{
+        text-align: center;
+        font-size : 15px
+    }
+}

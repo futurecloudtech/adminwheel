@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Admin Panel</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  [fullscreen]="true" class="background-image">
+  <div class="center">
+    <ion-title>
+      Login
+    </ion-title>
+      <ion-item>
+        <ion-label position="stacked">
+          Email
+        </ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="LoginByEmail(email)">
+        Login
+      </ion-button>
+  </div>
+</ion-content>
